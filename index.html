@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Step Student Form</title>
+    <!-- Linking External CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<!-- Step 1 -->
+<div id="step1" class="step active">
+    <h3>Step 1: Enter Details</h3>
+
+    <label>Name:</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" id="email"><br><br>
+
+    <button onclick="nextStep()">Next</button>
+</div>
+
+<!-- Step 2 -->
+<div id="step2" class="step">
+    <h3>Step 2: Summary</h3>
+
+    <p><strong>Name:</strong> <span id="displayName"></span></p>
+    <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+
+    <button onclick="backStep()">Back</button>
+</div>
+
+<script>
+function nextStep() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    document.getElementById("displayName").innerText = name;
+    document.getElementById("displayEmail").innerText = email;
+
+    document.getElementById("step1").classList.remove("active");
+    document.getElementById("step2").classList.add("active");
+}
+
+function backStep() {
+    document.getElementById("step2").classList.remove("active");
+    document.getElementById("step1").classList.add("active");
+}
+</script>
+
+</body>
+</html>
